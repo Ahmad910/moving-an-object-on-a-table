@@ -1,6 +1,6 @@
 package gameInstruments;
 
-public class Point {
+public abstract class Point {
 	private int x;
 	private int y;
 	private Direction direction;
