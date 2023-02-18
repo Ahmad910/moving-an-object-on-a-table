@@ -10,6 +10,16 @@ public abstract class Reader {
 		scanner = new Scanner(System.in);
 	}
 	
+
+	protected static boolean isNumeric(String string) {
+		try {
+			Integer.parseInt(string);
+			return true;
+		} catch (NumberFormatException e) {
+			return false;
+		}
+	}
+	
 	public abstract List<Integer> readFromUser();
 	
 }

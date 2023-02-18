@@ -41,11 +41,29 @@ public class CommandsReader extends Reader {
 		List<Integer> sequenceOfCommands = new ArrayList<Integer>();
 		try {
 			String[] splittedCommands = commands.split(",");
+			boolean wrongInput = false;
+			for (String command : splittedCommands) {
+				if(!isNumeric(command)) {
+					printCommandsInstructions();
+					wrongInput = true;
+				}
+			}
+			while(wrongInput) {
+				commands = scanner.next();
+				splittedCommands = commands.split(",");
+				for (String command : splittedCommands) {
+					if(!isNumeric(command)) {
+						printCommandsInstructions();
+						break;
+					} 
+					wrongInput = false;
+				}
+			}
 			for (String command : splittedCommands) {
 				sequenceOfCommands.add(Integer.parseInt(command));
 			}
 		} catch (NumberFormatException e) {
-			 System.err.println("that was not a number");
+			 System.out.println("that was not a number");
 		}
 		return sequenceOfCommands;
 
