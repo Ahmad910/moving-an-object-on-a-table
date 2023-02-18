@@ -63,7 +63,6 @@ public class CommandsReader extends Reader {
 				sequenceOfCommands.add(Integer.parseInt(command));
 			}
 		} catch (NumberFormatException e) {
-			 System.out.println("that was not a number");
 		}
 		return sequenceOfCommands;
 
